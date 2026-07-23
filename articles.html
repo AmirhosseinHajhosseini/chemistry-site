@@ -4,45 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>راز زکریا | مقالات علمی و پژوهشی</title>
-    <!-- بارگذاری فونت‌های مورد نیاز -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
-    <!-- بارگذاری آیکون‌های FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="pattern-overlay"></div>
-
-    <!-- هدر سایت -->
     <header>
         <div class="container header-wrapper">
             <a href="index.html" class="logo-area" style="text-decoration: none;">
-                   <img src="assets/logo.png" alt="لوگو راز زکریا" class="logo-img">
-
+                <img src="assets/logo.png" alt="لوگو راز زکریا" class="logo-img">
                 <span class="site-title">راز زکریا</span>
             </a>
-
             <ul class="nav-links">
                 <li><a href="index.html">صفحه اصلی</a></li>
                 <li><a href="articles.html" class="active">مقالات علمی</a></li>
                 <li><a href="about.html">درباره ما</a></li>
             </ul>
-
             <div class="header-actions">
-                <button id="theme-toggle" class="btn-icon" aria-label="تغییر حالت شب و روز">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button id="mobile-menu-btn" class="btn-icon mobile-only" aria-label="منوی موبایل">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                <button id="theme-toggle" class="btn-icon"><i class="fa-solid fa-moon"></i></button>
+                <button id="mobile-menu-btn" class="btn-icon mobile-only"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- سربرگ صفحه مقالات -->
         <section class="about-hero">
             <div class="container">
                 <h1>مقالات و پژوهش‌های علمی</h1>
@@ -50,7 +36,6 @@
             </div>
         </section>
 
-        <!-- نوار جستجو و فیلترها -->
         <div class="container">
             <div class="search-filter-container">
                 <div class="search-box">
@@ -65,54 +50,53 @@
             </div>
         </div>
 
-        <!-- لیست مقالات -->
         <section class="articles-wrapper container">
             <div class="articles-grid" id="articlesGrid">
                 
-                <!-- مقاله ۱ (پزشکی) -->
+                <!-- مقاله ۱ -->
                 <article class="article-card" data-category="medicine">
                     <div class="card-image-box">
                         <span class="category-tag">پزشکی و داروسازی</span>
-                        <img src="assets/smallpox.jpg" alt="آبله و سرخچه" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600'">
+                        <img src="assets/smallpox.jpg" alt="آبله و سرخجه" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
                     </div>
                     <div class="card-body">
-                        <h3>بررسی رساله آبله و سرخچه زکریای رازی</h3>
-                        <p>تحلیل تاریخی اولین کتاب تخصصی جهان در تفکیک آبله از سرخچه و متدولوژی علمی رازی در تشخیص بالینی بیماری‌ها.</p>
+                        <h3>بررسی رساله آبله و سرخجه زکریای رازی</h3>
+                        <p>تحلیل تاریخی اولین کتاب تخصصی جهان در تفکیک آبله از سرخجه و متدولوژی علمی رازی.</p>
                         <div class="card-footer">
                             <span class="card-date">۱۵ تیر ۱۴۰۵</span>
-                            <a href="article-detail.html" class="read-more-link">ادامه مطلب ←</a>
+                            <a href="article-smallpox.html" class="read-more-link">ادامه مطلب ←</a>
                         </div>
                     </div>
                 </article>
 
-                <!-- مقاله ۲ (شیمی) -->
+                <!-- مقاله ۲ -->
                 <article class="article-card" data-category="chemistry">
                     <div class="card-image-box">
                         <span class="category-tag">شیمی و کیمیا</span>
-                        <img src="assets/alch.jpg" alt="کیمیاگری رازی" onerror="this.src='https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&q=80&w=600'">
+                        <img src="assets/alch.jpg" alt="کیمیاگری رازی" onerror="this.src='https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=600'">
                     </div>
                     <div class="card-body">
                         <h3>سیر تاریخی کشف جوهر گوگرد (اسید سولفوریک)</h3>
-                        <p>بررسی آزمایش‌های تجربی رازی در کتاب الاسرار جهت تکلیس فلزات و روش تولید مقادیر اولیه روغن زاج یا اسید سولفوریک امروزی.</p>
+                        <p>بررسی آزمایش‌های تجربی رازی در کتاب الاسرار و روش تولید روغن زاج.</p>
                         <div class="card-footer">
                             <span class="card-date">۲ تیر ۱۴۰۵</span>
-                            <a href="article-detail.html" class="read-more-link">ادامه مطلب ←</a>
+                            <a href="article-sulfuric.html" class="read-more-link">ادامه مطلب ←</a>
                         </div>
                     </div>
                 </article>
 
-                <!-- مقاله ۳ (تاریخ) -->
+                <!-- مقاله ۳ -->
                 <article class="article-card" data-category="history">
                     <div class="card-image-box">
                         <span class="category-tag">تاریخ علم</span>
-                        <img src="assets/history.jpg" alt="کتاب الحاوی" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=600'">
+                        <img src="assets/history.jpg" alt="کتاب الحاوی" onerror="this.src='https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=600'">
                     </div>
                     <div class="card-body">
                         <h3>ترجمه بخش داروسازی کتاب بزرگ الحاوی</h3>
-                        <p>ترجمه مقایسه‌ای و تحلیل اصطلاحات داروسازی سنتی ذکر شده در دایرةالمعارف الحاوی بر اساس داروسازی مدرن مورتیمر.</p>
+                        <p>ترجمه مقایسه‌ای و تحلیل اصطلاحات داروسازی سنتی بر اساس متون مدرن.</p>
                         <div class="card-footer">
                             <span class="card-date">۲۳ خرداد ۱۴۰۵</span>
-                            <a href="article-detail.html" class="read-more-link">ادامه مطلب ←</a>
+                            <a href="article-al-hawi.html" class="read-more-link">ادامه مطلب ←</a>
                         </div>
                     </div>
                 </article>
@@ -121,52 +105,7 @@
         </section>
     </main>
 
-    <!-- فوتر -->
-    <footer>
-        <p>© ۱۴۰۵ راز زکریا. تمامی حقوق این وب‌سایت محفوظ است.</p>
-    </footer>
-
+    <footer><p>© ۱۴۰۵ راز زکریا</p></footer>
     <script src="script.js"></script>
-    <script>
-        // منطق تعاملی فیلتر و جستجوی مقالات در صفحه
-        document.addEventListener("DOMContentLoaded", () => {
-            const filterButtons = document.querySelectorAll(".filter-btn");
-            const searchInput = document.getElementById("searchInput");
-            const articles = document.querySelectorAll(".article-card");
-
-            if(searchInput) {
-                function filterArticles() {
-                    const query = searchInput.value.toLowerCase().trim();
-                    const activeCategoryBtn = document.querySelector(".filter-btn.active");
-                    const activeCategory = activeCategoryBtn ? activeCategoryBtn.getAttribute("data-category") : "all";
-
-                    articles.forEach(article => {
-                        const title = article.querySelector("h3").textContent.toLowerCase();
-                        const text = article.querySelector("p").textContent.toLowerCase();
-                        const category = article.getAttribute("data-category");
-
-                        const matchesSearch = title.includes(query) || text.includes(query);
-                        const matchesCategory = activeCategory === "all" || category === activeCategory;
-
-                        if (matchesSearch && matchesCategory) {
-                            article.style.display = "flex";
-                        } else {
-                            article.style.display = "none";
-                        }
-                    });
-                }
-
-                filterButtons.forEach(button => {
-                    button.addEventListener("click", () => {
-                        filterButtons.forEach(btn => btn.classList.remove("active"));
-                        button.classList.add("active");
-                        filterArticles();
-                    });
-                });
-
-                searchInput.addEventListener("input", filterArticles);
-            }
-        });
-    </script>
 </body>
 </html>
