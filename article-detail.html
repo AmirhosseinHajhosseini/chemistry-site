@@ -3,240 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>راز زکریا | جزئیات مقاله علمی</title>
+    <title>راز زکریا | سیر تاریخی کشف جوهر گوگرد</title>
     <!-- بارگذاری فونت‌های مورد نیاز -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <!-- بارگذاری آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* استایل‌های اختصاصی صفحه جزئیات مقاله */
-        
-        .article-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 40px;
-        }
-
-        .main-content {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-            border: 1px solid #eee;
-        }
-
-        .breadcrumb {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            padding: 0;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        .breadcrumb a {
-            color: var(--teal);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--navy);
-        }
-
-        .breadcrumb li:not(:last-child)::after {
-            content: '/';
-            margin-right: 10px;
-            color: #ccc;
-        }
-
-        .article-title {
-            font-size: 2.3rem;
-            color: var(--navy);
-            line-height: 1.4;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .article-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            color: #666;
-            font-size: 0.9rem;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-            margin-bottom: 30px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .article-body {
-            font-size: 1.15rem;
-            line-height: 2.1;
-            color: #333;
-            text-align: justify;
-        }
-
-        .article-body p {
-            margin-bottom: 25px;
-        }
-
-        /* بلوک فرمول شیمیایی با طرح کاغذ کهن */
-        .alchemical-block {
-            background: #fcf6e8;
-            border-right: 5px solid var(--navy);
-            border-left: 1px solid #e6dcbf;
-            border-top: 1px solid #e6dcbf;
-            border-bottom: 1px solid #e6dcbf;
-            padding: 25px;
-            border-radius: 6px;
-            margin: 35px 0;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        .alchemical-block::before {
-            content: '🧪';
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 1.5rem;
-            opacity: 0.3;
-        }
-
-        .formula-title {
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 10px;
-            font-size: 1.05rem;
-        }
-
-        .formula-code {
-            font-family: 'Courier New', Courier, monospace;
-            direction: ltr;
-            display: block;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 12px;
-            border-radius: 4px;
-            border: 1px dashed #dcd3b5;
-            font-size: 1rem;
-            color: #4a3e25;
-            overflow-x: auto;
-        }
-
-        /* استایل سایدبار */
-        aside {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .sidebar-widget {
-            background: #fafcfc;
-            border: 1px solid #eef3f3;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .widget-title {
-            font-size: 1.2rem;
-            color: var(--navy);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--teal);
-            font-weight: 700;
-        }
-
-        .works-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .works-list li {
-            margin-bottom: 15px;
-            position: relative;
-            padding-right: 15px;
-        }
-
-        .works-list li::before {
-            content: '•';
-            color: var(--teal);
-            font-weight: bold;
-            position: absolute;
-            right: 0;
-        }
-
-        .works-list a {
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .works-list a:hover {
-            color: var(--navy);
-        }
-
-        /* واکنش‌گرا (Responsive) */
-        @media (max-width: 992px) {
-            .article-container {
-                grid-template-columns: 1fr;
-            }
-            aside {
-                margin-top: 30px;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <div class="pattern-overlay"></div>
 
-    <!-- هدر سایت -->
+    <!-- هدر یکپارچه سایت -->
     <header>
-        <a href="index.html" class="logo">
-            <img src="assets/logo.png" alt="لوگو راز زکریا" onerror="this.style.display='none'">
-            <span>راز زکریا</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">خانه</a></li>
+        <div class="container header-wrapper">
+            <a href="index.html" class="logo-area" style="text-decoration: none;">
+                <img src="logo.png" alt="لوگو راز زکریا" class="logo-img" onerror="this.style.display='none'">
+                <span class="site-title">راز زکریا</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">صفحه اصلی</a></li>
                 <li><a href="articles.html" class="active">مقالات علمی</a></li>
-                <li><a href="about.html">درباره رازی</a></li>
+                <li><a href="about.html">درباره ما</a></li>
             </ul>
-             <button id="theme-toggle" class="theme-toggle-btn" title="تغییر حالت شب/روز">
-            <i class="fa-solid fa-moon"></i>
-        </button>
-        </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="تغییر حالت شب و روز">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="mobile-menu-btn" class="btn-icon mobile-only" aria-label="منوی موبایل">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <!-- محتوای اصلی و سایدبار -->
-    <div class="article-container">
-        
-        <!-- بدنه اصلی مقاله -->
-        <main class="main-content">
-            <!-- نوار راهنما -->
-            <ul class="breadcrumb">
-                <li><a href="index.html">خانه</a></li>
-                <li><a href="articles.html">مقالات</a></li>
-                <li>سیر تاریخی کشف جوهر گوگرد</li>
-            </ul>
+    <main class="container">
+        <!-- محتوای اصلی و سایدبار -->
+        <div class="article-container">
+            
+            <!-- بدنه اصلی مقاله -->
+            <article class="main-content">
+                <!-- نوار راهنما (Breadcrumb) -->
+                <ul class="breadcrumb">
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="articles.html">مقالات</a></li>
+                    <li>سیر تاریخی کشف جوهر گوگرد</li>
+                </ul>
 
-            <article>
                 <h1 class="article-title">سیر تاریخی کشف جوهر گوگرد (اسید سولفوریک)</h1>
                 
                 <div class="article-meta">
-                    <div class="meta-item">📅 انتشار: ۲ تیر ۱۴۰۵</div>
-                    <div class="meta-item">✍️ نویسنده: گروه پژوهشی شیمی راز زکریا</div>
-                    <div class="meta-item">🏷️ دسته‌بندی: تاریخ علم شیمی</div>
+                    <div class="meta-item"><i class="fa-regular fa-calendar-days"></i> انتشار: ۲ تیر ۱۴۰۵</div>
+                    <div class="meta-item"><i class="fa-regular fa-user"></i> نویسنده: گروه پژوهشی شیمی راز زکریا</div>
+                    <div class="meta-item"><i class="fa-solid fa-tags"></i> دسته‌بندی: تاریخ علم شیمی</div>
                 </div>
 
                 <div class="article-body">
@@ -245,17 +67,17 @@
                     </p>
 
                     <p>
-                        رازی با به کارگیری فرایند تکلیس (کلسیناسیون) و تقطیر خشک کانی‌های سولفاتی طبیعی، به ویژه زاج سبز (سولفات آهن II)، موفق به به دست آوردن محلولی اسیدی شد که به علت چگالی و غلظت بالای آن، به «روغن زاج» معروف گردید. این واکنش با آزادسازی گاز تری‌اکسید گوگرد و ترکیب بعدی آن با رطوبتِ تقطیر شده، اسید سولفوریک نسبتاً خالصی ایجاد می‌کرد.
+                        رازی با به کارگیری فرایند تکلیس (کلسیناسیون) و تقطیر خشک کانی‌های سولفاتی طبیعی، به ویژه زاج سبز (سولفات آهن II)، موفق به به دست آوردن محلولی اسیدی شد که به علت چگالی و غلظت بالای آن، به «روغن زاج» معروف گردید. این واکنش با آزادسازی گاز تری‌اکسید گوگرد و ترکیب بعدی آن با رطوبتِ تقطیر شده، اسید سولفوریک نسبتاً خالص ایجاد می‌کرد.
                     </p>
 
-                    <!-- بلوک فرمولاسیون باستان و معادل امروزی -->
+                    <!-- بلوک فرمولاسیون باستان و معادل امروزی با طرح کاغذ کهن -->
                     <div class="alchemical-block">
                         <div class="formula-title">تفسیر شیمیایی واکنش تکلیس زاج سبز (رازی):</div>
-                        <p style="font-size: 0.95rem; color: #555; margin-bottom: 10px;">حرارت‌دهی شدید سولفات آهن هیدراته و تقطیر بخارات حاصل:</p>
+                        <p style="font-size: 0.95rem; margin-bottom: 10px; opacity: 0.85;">حرارت‌دهی شدید سولفات آهن هیدراته و تقطیر بخارات حاصل:</p>
                         <code class="formula-code">
-                            1) FeSO4.7H2O + Heat -> FeSO4 + 7H2O<br>
-                            2) 2FeSO4 + Heat -> Fe2O3 + SO2 + SO3<br>
-                            3) SO3 + H2O -> H2SO4 (جوهر گوگرد / روغن زاج)
+1) FeSO4.7H2O + Heat -> FeSO4 + 7H2O<br>
+2) 2FeSO4 + Heat -> Fe2O3 + SO2 + SO3<br>
+3) SO3 + H2O -> H2SO4 (جوهر گوگرد / روغن زاج)
                         </code>
                     </div>
 
@@ -264,30 +86,30 @@
                     </p>
                 </div>
             </article>
-        </main>
 
-        <!-- بخش سایدبار جانبی -->
-        <aside>
-            <div class="sidebar-widget">
-                <h3 class="widget-title">آثار برجسته شیمی رازی</h3>
-                <ul class="works-list">
-                    <li><a href="#">کتاب الاسرار (کتاب رازها)</a></li>
-                    <li><a href="#">سرّ الاسرار (راز رازها)</a></li>
-                    <li><a href="#">کتاب التدبیر (فرآیندهای آزمایشگاهی)</a></li>
-                </ul>
-            </div>
+            <!-- بخش سایدبار جانبی -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">آثار برجسته شیمی رازی</h3>
+                    <ul class="works-list">
+                        <li><a href="#"><i class="fa-solid fa-book-open"></i> کتاب الاسرار (کتاب رازها)</a></li>
+                        <li><a href="#"><i class="fa-solid fa-book-open"></i> سرّ الاسرار (راز رازها)</a></li>
+                        <li><a href="#"><i class="fa-solid fa-book-open"></i> کتاب التدبیر</a></li>
+                    </ul>
+                </div>
 
-            <div class="sidebar-widget">
-                <h3 class="widget-title">موضوعات مرتبط</h3>
-                <ul class="works-list">
-                    <li><a href="#">روش‌های تقطیر در تاریخ علم</a></li>
-                    <li><a href="#">شیمی مورتیمر و اسیدهای معدنی</a></li>
-                    <li><a href="#">کیمیاگری سنتی و متالوژی رازی</a></li>
-                </ul>
-            </div>
-        </aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">موضوعات مرتبط</h3>
+                    <ul class="works-list">
+                        <li><a href="#"><i class="fa-solid fa-flask"></i> روش‌های تقطیر در تاریخ علم</a></li>
+                        <li><a href="#"><i class="fa-solid fa-atom"></i> شیمی مورتیمر و اسیدهای معدنی</a></li>
+                        <li><a href="#"><i class="fa-solid fa-scroll"></i> کیمیاگری سنتی و متالوژی رازی</a></li>
+                    </ul>
+                </div>
+            </aside>
 
-    </div>
+        </div>
+    </main>
 
     <!-- فوتر -->
     <footer>

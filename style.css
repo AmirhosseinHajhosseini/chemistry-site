@@ -1,43 +1,64 @@
-/* متغیرهای سراسری */
+/* ==========================================================================
+   ۱. متغیرهای سراسری و پایه (Light & Dark Theme)
+   ========================================================================== */
 :root {
-    --navy: #0b5a6a;
-    --dark-navy: #063c47;
-    --teal: #48c7cf;
-    --white: #ffffff;
-    --light-bg: #f9fbfb;
-    --text-color: #333333;
-    --card-bg: #ffffff; /* متغیر جدید برای کارت‌ها */
+    /* تم روشن - ملایم و سنتی */
+    --bg-main: #f4f7f6;
+    --bg-card: #ffffff;
+    --primary: #0b5a6a;
+    --primary-hover: #063c47;
+    --accent: #d4af37; /* طلایی ملایم زکریایی */
+    --text-main: #2c3e50;
+    --text-muted: #607d8b;
+    --border-color: #e2e8f0;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    
     --font-fa: 'Vazirmatn', sans-serif;
     --font-en: 'Open Sans', sans-serif;
-    --transition: all 0.3s ease;
+    --glow: rgba(11, 90, 106, 0.15);
 }
 
-/* تنظیمات حالت تاریک */
 body.dark-theme {
-    --white: #121824;
-    --light-bg: #0f172a;
-    --card-bg: #1e293b;
-    --navy: #48c7cf;
-    --dark-navy: #0b5a6a;
-    --text-color: #e2e8f0;
+    /* تم تاریک - سورمه‌ای عمیق نجیب و طلایی */
+    --bg-main: #0a0f1d;
+    --bg-card: #121829;
+    --primary: #48c7cf;
+    --primary-hover: #67dadd;
+    --accent: #ffcb2b; /* طلایی درخشان در شب */
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #1e293b;
+    --header-bg: rgba(10, 15, 29, 0.95);
+    --shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    --glow: rgba(72, 199, 207, 0.15);
 }
 
+/* ==========================================================================
+   ۲. ریست عمومی و ساختار بدنه
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
     font-family: var(--font-fa);
-    background-color: var(--light-bg);
-    color: var(--text-color);
-    line-height: 1.6;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
     overflow-x: hidden;
-    transition: var(--transition); /* اعمال ترنزیشن روی کل بدنه */
 }
 
-/* پس‌زمینه سایت (پترن) */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* پس‌زمینه سنتی سنتی */
 .pattern-overlay {
     position: fixed;
     top: 0;
@@ -45,95 +66,857 @@ body {
     width: 100%;
     height: 100%;
     background: url('assets/pattern.png');
-    opacity: 0.03;
+    opacity: 0.02;
     pointer-events: none;
     z-index: -1;
 }
 
-/* استایل هدر */
+/* ==========================================================================
+   ۳. هدر و منوی ناوبری انعطاف‌پذیر
+   ========================================================================== */
 header {
-    background: var(--card-bg);
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--header-bg);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
+    box-shadow: var(--shadow);
 }
 
-.logo {
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo-area {
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--navy);
+    gap: 12px;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+}
+
+.site-title {
+    font-size: 1.4rem;
     font-weight: 800;
-    font-size: 1.5rem;
+    color: var(--primary);
+    letter-spacing: -0.5px;
 }
 
-.logo img {
-    height: 40px;
-}
-
-nav ul {
+.nav-links {
     display: flex;
     list-style: none;
     gap: 25px;
 }
 
-nav a {
+.nav-links a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-main);
     font-weight: 600;
-    transition: var(--transition);
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
 }
 
-nav a:hover, nav a.active {
-    color: var(--teal);
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
 }
 
-/* کارت‌ها و بخش‌های محتوا */
-.info-card, .bio-section, .article-card, .timeline-content {
-    background: var(--card-bg);
-    color: var(--text-color);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: var(--transition);
+/* دکمه‌ها و ابزارهای هدر */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-body.dark-theme .info-card, 
-body.dark-theme .bio-section, 
-body.dark-theme .article-card {
-    border-color: #2d3748;
-}
-
-/* دکمه سوئیچ تم */
-.theme-toggle-btn {
-    background: none;
-    border: 2px solid var(--teal);
-    color: var(--teal);
-    font-size: 1.1rem;
-    cursor: pointer;
+.btn-icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
     padding: 8px 12px;
-    border-radius: 50%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: 0.2s ease;
 }
 
-.theme-toggle-btn:hover {
-    background: var(--teal);
-    color: var(--white);
+.btn-icon:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
 }
 
-/* استایل فوتر */
-footer {
-    background: var(--dark-navy);
-    color: #fff;
+.mobile-only {
+    display: none;
+}
+
+/* ==========================================================================
+   ۴. استایل‌های اختصاصی صفحه اصلی (Hero & Features)
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: var(--glow);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border: 1px solid rgba(72, 199, 207, 0.2);
+}
+
+.hero-content h1 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 4px 15px var(--glow);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    border: 2px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    max-width: 100%;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* بخش ویژگی‌ها */
+.features-section {
+    padding: 60px 0;
+}
+
+.section-header {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* بخش نقل‌قول */
+.quote-section {
+    background: var(--bg-card);
+    border-left: 5px solid var(--accent);
     padding: 40px;
-    margin-top: 50px;
+    border-radius: 10px;
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+}
+
+.quote-text {
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.quote-author {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   ۵. استایل‌های اختصاصی فرمول‌های کیمیاگری (Alchemical Style)
+   ========================================================================== */
+.alchemical-block {
+    background: #fff8eb;
+    border: 1px dashed var(--accent);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    color: #5c4314;
+}
+
+body.dark-theme .alchemical-block {
+    background: #1c150c;
+    color: #f7e0bc;
+}
+
+/* ==========================================================================
+   ۶. فوتر سایت
+   ========================================================================== */
+footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   ۷. طراحی رسپانسیو و حالت موبایل (RWD)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .hero-section {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .mobile-only {
+        display: flex;
+    }
+    
+    .nav-links {
+        display: none; /* منوی موبایل توسط جاوااسکریپت کلاس active می‌گیرد */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+        text-align: center;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+}
+/* ==========================================================================
+   ۸. استایل‌های اختصاصی صفحه درباره ما (about.html)
+   ========================================================================== */
+.about-hero {
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+    color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.about-hero p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    padding: 0 15px;
+}
+
+.about-container {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-card {
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    text-align: justify;
+}
+
+.info-card h2 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.info-card p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.contact-item {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: var(--glow);
+    border-radius: 50%;
+}
+
+.contact-details h4 {
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+}
+
+.contact-details a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: var(--font-en);
+}
+
+.contact-details a:hover {
+    color: var(--primary);
+}
+
+.vision-box {
+    background: var(--bg-main);
+    border-right: 5px solid var(--accent);
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.vision-box h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.3rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+}
+
+.social-btn.telegram {
+    background: #229ED9;
+}
+
+.social-btn.instagram {
+    background: #E1306C;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* ==========================================================================
+   ۹. استایل‌های اختصاصی صفحه مقالات (articles.html)
+   ========================================================================== */
+.search-filter-container {
+    max-width: 900px;
+    margin: -30px auto 40px auto;
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+    border: 1px solid var(--border-color);
+}
+
+.search-box {
+    flex: 2;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-main);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-family: var(--font-fa);
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--glow);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-btn {
+    background: var(--bg-main);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--font-fa);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.articles-wrapper {
+    padding-bottom: 60px;
+    min-height: 50vh;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.article-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px var(--glow);
+}
+
+.card-image-box {
+    height: 200px;
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.article-card:hover .card-image-box img {
+    transform: scale(1.05);
+}
+
+.category-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.card-body p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.read-more-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .search-filter-container {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    .filter-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+    .filter-btn {
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+/* ==========================================================================
+   ۱۰. استایل‌های اختصاصی صفحه جزئیات مقاله (article-detail.html)
+   ========================================================================== */
+.article-container {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.main-content {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.breadcrumb a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary);
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '/';
+    margin-right: 8px;
+    color: var(--border-color);
+}
+
+.article-title {
+    font-size: 2rem;
+    color: var(--primary);
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.95;
+    color: var(--text-main);
+    text-align: justify;
+}
+
+.article-body p {
+    margin-bottom: 25px;
+}
+
+/* بلوک فرمول شیمیایی با طرح کاغذ کهن هماهنگ با تم‌ها */
+.alchemical-block {
+    background: var(--glow);
+    border-right: 5px solid var(--primary);
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin: 35px 0;
+    position: relative;
+}
+
+.formula-title {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.formula-code {
+    font-family: var(--font-en);
+    direction: ltr;
+    display: block;
+    background: var(--bg-main);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+/* استایل سایدبار */
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent);
+    font-weight: 700;
+}
+
+.works-list {
+    list-style: none;
+    padding: 0;
+}
+
+.works-list li {
+    margin-bottom: 15px;
+}
+
+.works-list a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.works-list a:hover {
+    color: var(--primary);
+    transform: translateX(-3px);
+}
+
+.works-list a i {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 992px) {
+    .article-container {
+        grid-template-columns: 3fr 1fr;
+    }
 }
