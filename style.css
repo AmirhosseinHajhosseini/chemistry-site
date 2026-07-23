@@ -1,4 +1,4 @@
-/* متغیرهای سراسری برای مدیریت رنگ و فونت */
+/* متغیرهای سراسری */
 :root {
     --navy: #0b5a6a;
     --dark-navy: #063c47;
@@ -6,8 +6,20 @@
     --white: #ffffff;
     --light-bg: #f9fbfb;
     --text-color: #333333;
+    --card-bg: #ffffff; /* متغیر جدید برای کارت‌ها */
     --font-fa: 'Vazirmatn', sans-serif;
     --font-en: 'Open Sans', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+/* تنظیمات حالت تاریک */
+body.dark-theme {
+    --white: #121824;
+    --light-bg: #0f172a;
+    --card-bg: #1e293b;
+    --navy: #48c7cf;
+    --dark-navy: #0b5a6a;
+    --text-color: #e2e8f0;
 }
 
 * {
@@ -22,6 +34,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: var(--transition); /* اعمال ترنزیشن روی کل بدنه */
 }
 
 /* پس‌زمینه سایت (پترن) */
@@ -31,7 +44,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* می‌توانید از یک تصویر تکرارشونده اسلیمی در اینجا استفاده کنید */
     background: url('assets/pattern.png');
     opacity: 0.03;
     pointer-events: none;
@@ -40,15 +52,16 @@ body {
 
 /* استایل هدر */
 header {
-    background: var(--white);
+    background: var(--card-bg);
     padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: var(--transition);
 }
 
 .logo {
@@ -75,44 +88,52 @@ nav a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 600;
-    transition: color 0.3s;
+    transition: var(--transition);
 }
 
 nav a:hover, nav a.active {
     color: var(--teal);
 }
 
+/* کارت‌ها و بخش‌های محتوا */
+.info-card, .bio-section, .article-card, .timeline-content {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+body.dark-theme .info-card, 
+body.dark-theme .bio-section, 
+body.dark-theme .article-card {
+    border-color: #2d3748;
+}
+
+/* دکمه سوئیچ تم */
+.theme-toggle-btn {
+    background: none;
+    border: 2px solid var(--teal);
+    color: var(--teal);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+    background: var(--teal);
+    color: var(--white);
+}
+
 /* استایل فوتر */
 footer {
-    background: var(--navy);
-    color: var(--white);
+    background: var(--dark-navy);
+    color: #fff;
     text-align: center;
     padding: 40px;
     margin-top: 50px;
-}
-
-/* دکمه‌های عمومی */
-.btn-primary {
-    background: var(--teal);
-    color: var(--white);
-    padding: 12px 30px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-.btn-primary:hover {
-    background: var(--navy);
-}
-
-/* رسپانسیو پایه */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-    nav ul {
-        gap: 15px;
-    }
 }
